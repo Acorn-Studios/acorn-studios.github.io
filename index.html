@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+	<style>
+	
+	html {
+	font-family: 'ABeeZee', sans-serif;
+	color: #ffffff;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	-webkit-animation: gradient 25s ease infinite;
+	        animation: gradient 25s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+ .btn-flip {
+ 	font-family: 'ABeeZee', sans-serif;
+	 opacity: 1;
+	 outline: 0;
+	 color: #fff;
+	 line-height: 40px;
+	 position: relative;
+	 text-align: center;
+	 letter-spacing: 1px;
+	 display: inline-block;
+	 text-decoration: none;
+	 font-family: 'Open Sans';
+	 text-transform: uppercase;
+}
+ .btn-flip:hover:after {
+	 opacity: 1;
+	 transform: translateY(0) rotateX(0);
+}
+ .btn-flip:hover:before {
+	 opacity: 0;
+	 transform: translateY(50%) rotateX(90deg);
+}
+ .btn-flip:after {
+	 top: 0;
+	 left: 0;
+	 opacity: 0;
+	 width: 100%;
+	 color: #323237;
+	 display: block;
+	 transition: 0.5s;
+	 position: absolute;
+	 background: #edeed9;
+	 content: attr(data-back);
+	 transform: translateY(-50%) rotateX(90deg);
+}
+ .btn-flip:before {
+ 	font-family: 'ABeeZee', sans-serif;
+	 top: 0;
+	 left: 0;
+	 opacity: 1;
+	 color: #adadaf;
+	 display: block;
+	 padding: 0 30px;
+	 line-height: 40px;
+	 transition: 0.5s;
+	 position: relative;
+	 background: #323237;
+	 content: attr(data-front);
+	 transform: translateY(0) rotateX(0);
+}
+p {
+  color: #383838;
+  font-size: 4em;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  margin-top: 55px;
+  text-transform: uppercase;
+}
+
+.icons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc( 40vh - 110px );
+  width: 380px;
+  height: 75px;
+  text-align: center;
+  border: 0px solid #383838;
+  border-radius: 0px;
+}
+
+ico {
+  display: block;
+  width: 40px;
+  height: 60px;
+  margin-left: 18px;
+  position: relative;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+  float:left;
+}
+
+.btn-upload {
+  margin-left: 87px;
+}
+
+/* upload */
+
+ico.btn-upload:after {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 2px solid #383838;
+  border-radius: 0px;
+  position: absolute;
+  bottom: 0;
+}
+ico.btn-upload:hover n {
+  transform: translateY(2px);
+}
+ico.btn-upload n {
+  display: block;
+  width: 2px;
+  height: 38px;
+  background: #383838;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  transform: translateY(60px);
+  transition: 0.4s;
+}
+ico.btn-upload n:after,
+ico.btn-upload n:before {
+  content: "";
+  width: 2px;
+  height: 17.5px;
+  background: #383838;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
+}
+ico.btn-upload n:before {
+  transform-origin: 2px 0px;
+  transform: rotate(45deg);
+}
+
+/* download */
+
+ico.btn-download:after {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 2px solid #383838;
+  border-radius: 0px;
+  position: absolute;
+  bottom: 0;
+}
+ico.btn-download:hover n {
+  transform: translateY(2px);
+}
+ico.btn-download n {
+  display: block;
+  width: 2px;
+  height: 38px;
+  background: #383838;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  transform: translateY(60px);
+  transition: 0.4s;
+}
+ico.btn-download n:after,
+ico.btn-download n:before {
+  content: "";
+  width: 2px;
+  height: 17.5px;
+  background: #383838;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  transform-origin: 0px 16px;
+  transform: rotate(-45deg);
+}
+ico.btn-download n:before {
+  transform-origin: 2px 16px;
+  transform: rotate(45deg);
+}
+
+/* list */
+
+ico.btn-list:after {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 2px solid #383838;
+  border-radius: 0px;
+  position: absolute;
+  bottom: 0;
+}
+ico.btn-list:hover n {
+  transform: translateX(0px);
+}
+ico.btn-list:hover n:after,
+ico.btn-list:hover n:before {
+  transform: translateX(0px);
+}
+ico.btn-list n {
+  display: block;
+  width: 15px;
+  height: 2px;
+  background: #383838;
+  position: absolute;
+  top: 33px;
+  left: 15px;
+  transition: 0.4s;
+  transform: translateX(-30px);
+  box-shadow: -3px 0 0 #383838, -5px 0 0 #383838;
+}
+ico.btn-list n:after,
+ico.btn-list n:before {
+  content: "";
+  width: 15px;
+  height: 2px;
+  background: #383838;
+  position: absolute;
+  top: 6px;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+  transform: translateX(-30px);
+  box-shadow: -3px 0 0 #383838, -5px 0 0 #383838;
+  left: 0px;
+}
+ico.btn-list n:before {
+  top: 12px;
+  ransition-delay: 0.4s;
+}
+
+/* halo */
+
+ico.btn-halo {
+  z-index: 3;
+}
+ico.btn-halo:after {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 26px;
+  height: 26px;
+  border: 2px solid #383838;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 7px;
+  background: none;
+}
+ico.btn-halo:before {
+  display: block;
+  content: "";
+  width: 32px;
+  height: 2px;
+  position: absolute;
+  bottom: 23px;
+  left: 1px;
+  background: transparent;
+  transform: rotate(-45deg) rotatey(90deg);
+  transform-origin: 22.5px 4px;
+  border-left: 4px solid #383838;
+  border-right: 4px solid #383838;
+  transition: 0.4s;
+}
+ico.btn-halo:hover:before {
+  transform: rotate(-45deg) rotatey(0deg);
+}
+ico.btn-halo:hover n {
+  transform: rotatey(0deg);
+}
+ico.btn-halo:hover n:after {
+  transform: rotate(45deg) rotatey(0deg);
+}
+ico.btn-halo:hover n:before {
+  transform: rotate(90deg) rotatey(0deg);
+}
+ico.btn-halo n {
+  display: block;
+  width: 32px;
+  height: 2px;
+  position: absolute;
+  top: 39px;
+  left: 0px;
+  border-left: 4px solid #383838;
+  border-right: 4px solid #383838;
+  transition: 0.4s;
+  transform: rotatey(90deg);
+  z-index: ;
+}
+ico.btn-halo n:after,
+ico.btn-halo n:before {
+  content: "";
+  transition: 0.4s;
+  width: 33px;
+  height: 2px;
+  top: 0px;
+  left: -8px;
+  background: transparent;
+  position: absolute;
+  transform: rotate(45deg) rotatey(90deg);
+  transform-origin: 22.5px 4px;
+  border-left: 4px solid #383838;
+  border-right: 4px solid #383838;
+}
+ico.btn-halo n:before {
+  transform: rotate(90deg) rotatey(90deg);
+  transform-origin: 22px 3px;
+  top: -1px;
+  left: -8px;
+  width: 32px;
+  border-left: 4px solid #383838;
+  border-right: 4px solid #383838;
+}
+</style>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	  <center>
+	  	<h1>Hey!<br><br><br>
+	  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <br>ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> Duis aute irure dolor in <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla <br>pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <br>culpa qui officia deserunt mollit anim id est laborum.</h1><br><br><a href="https://discord.gg/yUVmBWgmS2" class="btn-flip" data-back="😉" data-front="Join The Discord ➡"></a><br><br><a href="" class="btn-flip" data-back="Coming Soon!" data-front="Support Me 💖"></a>
+	  	<br><br><a href="https://acorn-studios.itch.io/" class="btn-flip" data-back="itch.io 🎮" data-front="My Games 🕹"></a><br><br><a href="https://github.com/Acorn-Studios" class="btn-flip" data-back="Github.com" data-front="My Github"></a>
+	  	<div class="icons">
+  <ico class="btn-upload"><n></n></ico>
+  <ico class="btn-download"><n></n></ico>
+  <ico class="btn-list"><n></n></ico>
+  <ico class="btn-halo"><n></n></ico>
+</div>
+	  </center>
+</body>
+</html>
