@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400";
+ body {
+	 background-color: #ecd98b;
+	 background-image: linear-gradient(56deg, #ecd98b 0%, #f2b95a 100%);
+	 font-family: 'Roboto', sans-serif;
+	 font-weight: 300;
+}
+ .container {
+	 height: 90vh;
+	 left: 0;
+	 padding: 5vh 5vw;
+	 position: absolute;
+	 top: 0;
+	 width: 90vw;
+}
+ .grid {
+	 display: grid;
+	 grid-template-columns: 1fr;
+	 grid-gap: 0;
+	 margin: auto;
+	 max-width: 340px;
+}
+ @media only screen and (min-width: 680px) {
+	 .grid {
+		 grid-template-columns: 1fr 1fr;
+		 max-width: 680px;
+		 position: relative;
+		 transform: translateY(-50%);
+		 top: 50%;
+	}
+}
+ .grid__item {
+	 cursor: pointer;
+	 height: 0;
+	 padding-bottom: 90%;
+	 position: relative;
+}
+ .grid__item::after, .grid__item::before {
+	 content: "";
+	 display: block;
+	 position: absolute;
+}
+ .grid__item::after {
+	 background: #fff;
+	 border-radius: 10px;
+	 bottom: 10px;
+	 left: 10px;
+	 right: 10px;
+	 top: 10px;
+}
+ .grid__item::before {
+	 border-radius: 20px;
+	 bottom: 10px;
+	 box-shadow: 0 4px 80px 0 rgba(127, 86, 17, 0.4);
+	 cursor: pointer;
+	 left: 10px;
+	 right: 10px;
+	 top: 40px;
+}
+ .grid:hover .grid__item {
+	 opacity: 0.95;
+	 transform: scale(1);
+	 z-index: 5;
+}
+ .grid:hover .grid__item:before {
+	 box-shadow: 0 2px 8px 0 rgba(127, 86, 17, 0.4);
+}
+ .grid__item--active, .grid__item:hover {
+	 opacity: 1 !important;
+	 transform: scale(1.04) !important;
+	 z-index: 5 !important;
+}
+ .grid__item--active:before, .grid__item:hover:before {
+	 box-shadow: 0 40px 100px 0 rgba(127, 86, 17, 0.8) !important;
+}
+ .grid__title {
+	 grid-column: -1;
+}
+ .grid__title h2 {
+	 color: rgba(0, 0, 0, 0.75);
+	 font-size: 20px;
+	 padding: 6px 18px 8px;
+	 position: relative;
+	 margin: 0 0 6px;
+}
+ .grid__title h2:after {
+	 background: rgba(0, 0, 0, 0.25);
+	 bottom: 0;
+	 content: "";
+	 display: block;
+	 left: 18px;
+	 height: 4px;
+	 position: absolute;
+	 width: 30px;
+}
+ .grid__copy {
+	 color: rgba(0, 0, 0, 0.6);
+	 font-size: 14px;
+	 grid-column: 2;
+	 line-height: 1.4;
+	 padding: 6px 18px;
+}
+ .grid__copy a {
+	 color: rgba(0, 0, 0, 0.75);
+}
+ .grid__copy p {
+	 max-width: 18em;
+}
+ .card__image-holder {
+	 border-radius: 10px 10px 0 0;
+	 bottom: calc(35% - 10px);
+	 background-clip: padding-box;
+	 -webkit-background-clip: padding-box;
+	 -moz-background-clip: padding;
+	 overflow: hidden;
+	 left: 10px;
+	 position: absolute;
+	 right: 10px;
+	 top: 10px;
+	 z-index: 10;
+}
+ .card__image {
+	 max-width: 100%;
+}
+ .card__details {
+	 background: #fff;
+	 border-radius: 0 0 10px 10px;
+	 bottom: 10px;
+	 left: 10px;
+	 overflow: hidden;
+	 position: absolute;
+	 right: 10px;
+	 top: calc(70% - 10px);
+	 z-index: 20;
+}
+ .card__title {
+	 color: rgba(0, 0, 0, 0.9);
+	 font-size: 18px;
+	 font-weight: 300;
+	 margin: 0;
+	 padding: 0 12px;
+	 position: relative;
+}
+ .card__icon {
+	 bottom: -4px;
+	 opacity: 0;
+	 position: absolute;
+	 right: 10px;
+	 transform: scale(0.3);
+	 visibility: hidden;
+}
+ .card__icon svg * {
+	 fill: #f8a51b;
+}
+ .card__sub-title {
+	 color: rgba(0, 0, 0, 0.6);
+	 font-size: 14px;
+	 font-weight: 300;
+	 margin: 0;
+	 padding: 16px 12px 2px;
+}
+ .card__info {
+	 color: rgba(0, 0, 0, 0.6);
+	 font-size: 14px;
+	 line-height: 1.4;
+	 margin: 4px 0;
+	 opacity: 0;
+	 padding: 0 12px;
+	 transform: translateY(10px);
+	 visibility: hidden;
+}
+ .card__map {
+	 top: 100%;
+}
+ .card__map {
+	 height: 100%;
+	 min-height: 340px;
+	 width: 100%;
+	 position: absolute;
+	 z-index: 999;
+}
+ .grid__item--active .card__image-holder, .grid__item:hover .card__image-holder {
+	 bottom: calc(50% + 10px);
+}
+ .grid__item--active .card__image, .grid__item:hover .card__image {
+	 transform: scale(1.05) translateY(-5%);
+}
+ .grid__item--active .card__details, .grid__item:hover .card__details {
+	 top: calc(50% - 10px);
+}
+ .grid__item--active .card__info, .grid__item:hover .card__info {
+	 opacity: 1;
+	 transform: translateY(-16px);
+	 visibility: visible;
+}
+ .grid__item--active .card__title, .grid__item:hover .card__title {
+	 transform: translateY(-20px);
+}
+ .grid__item--active .card__icon--location, .grid__item:hover .card__icon--location {
+	 opacity: 1;
+	 transform: scale(1);
+	 visibility: visible;
+}
+ .grid__item--active .card__sub-title, .grid__item:hover .card__sub-title {
+	 opacity: 0;
+	 transform: translateY(-20px);
+}
+ .grid__item.grid__item--active, .grid__item--active, .grid__item--active:hover {
+	 opacity: 1 !important;
+	 transform: scale(1.085) !important;
+	 z-index: 100 !important;
+}
+ .grid__item.grid__item--active .card__details, .grid__item--active .card__details, .grid__item--active:hover .card__details {
+	 border-radius: 10px;
+	 top: 10px;
+}
+ .grid__item.grid__item--active .card__info, .grid__item--active .card__info, .grid__item--active:hover .card__info {
+	 opacity: 0;
+	 transform: translateY(-20px);
+	 visibility: hidden;
+}
+ .grid__item.grid__item--active .card__map, .grid__item--active .card__map, .grid__item--active:hover .card__map {
+	 bottom: 0;
+	 top: 50px;
+}
+ .grid__item--active .card__icon--location {
+	 opacity: 0 !important;
+	 transform: scale(1);
+	 visibility: visible;
+}
+ .grid__item--active .card__icon--close {
+	 opacity: 1;
+	 transform: scale(1);
+	 visibility: visible;
+}
+ .grid__item, .grid__item *, .grid__item::before {
+	 transition: all 0.3s ease-in;
+}
+ .grid:hover .grid__item, .grid:hover .grid__item *, .grid:hover .grid__item::before {
+	 transition: all 0.2s ease-in;
+}
+ .grid__item:hover, .grid__item:hover *, .grid__item:hover .grid__item::before {
+	 transition: all 0.3s cubic-bezier(0.65, 0.64, 0.66, 1.2) !important;
+}
+ 
+</style>
+<script>
+// toggle
+const gridItems = document.getElementsByClassName("grid__item");
+Array.from(gridItems).forEach(function (element) {
+  // add click even listener to each .grid__item
+  element.addEventListener('click', function () {
+    if (element.classList.contains('grid__item--active')) {
+      // if this element is active, then make inactive
+      element.classList.remove('grid__item--active');
+    } else {
+      // else, remove active class from any that might have it
+      const activeEls = document.getElementsByClassName('grid__item--active');
+      Array.from(activeEls).forEach(function (activeEl) {
+        activeEl.classList.remove('grid__item--active');
+      });
+      // make this element active
+      element.classList.add('grid__item--active');
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+<div class="container">
+  <div class="grid">
+    <div class="grid__title">
+      <h2>Click a card</h2>
+    </div>
+    <a href="http://source.unsplash.com" target="_blank">
+    <div class="grid__item">
+       <div class="card">
+         <div class="card__image-holder">
+           <img class="card__image" src="https://source.unsplash.com/800x600/?cardiff" alt="city" />
+         </div>
+         <div class="card__details">
+           <h3 class="card__sub-title">Wales</h3>
+           <h2 class="card__title">Cardiff
+             <span class="card__icon card__icon--location">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+             </span>
+             <span class="card__icon card__icon--close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg
+             </span>
+           </h2>
+           <p class="card__info">Cardiff is a port city on the south coast of Wales, where the River Taff meets the Severn Estuary</p>
+           <div class="card__map" id="map-cardiff"></div>
+         </div>
+       </div>
+    </div>
+    </a>
+    <a href="http://source.unsplash.com" target="_blank">
+    <div class="grid__item">
+       <div class="card">
+         <div class="card__image-holder">
+           <img class="card__image" src="https://source.unsplash.com/800x600/?edinburgh" alt="city" />
+         </div>
+         <div class="card__details">
+           <h3 class="card__sub-title">Scotland</h3>
+           <h2 class="card__title">Edinburgh
+             <span class="card__icon card__icon--location">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+             </span>
+             <span class="card__icon card__icon--close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg
+             </span>
+           </h2>
+           <p class="card__info">Edinburgh is Scotland's capital. It has a medieval Old Town and elegant Georgian New Town</p>
+           <div class="card__map" id="map-edinburgh"></div>
+         </div>
+       </div>
+    </div>
+    </a>
+    <a href="http://source.unsplash.com" target="_blank">
+    <div class="grid__item">
+       <div class="card">
+         <div class="card__image-holder">
+           <img class="card__image" src="https://source.unsplash.com/800x600/?dublin" alt="city" />
+         </div>
+         <div class="card__details">
+           <h3 class="card__sub-title">Ireland</h3>
+           <h2 class="card__title">Dublin
+             <span class="card__icon card__icon--location">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+             </span>
+             <span class="card__icon card__icon--close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg
+             </span>
+           </h2>
+           <p class="card__info">Dublin, capital of the Republic of Ireland, is on Ireland’s east coast at the mouth of the River Liffey</p>
+           <div class="card__map" id="map-dublin"></div>
+         </div>
+       </div>
+    </div>
+    </a>
+
+    <div class="grid__copy">
+      <p>The beautiful, random images for each city are from <a href="http://source.unsplash.com" target="_blank">source.unsplash.com</a></p>
+      <p>The amazing, rotating, interactive maps are from <a href="http://www.mapbox.com" target="_blank">www.mapbox.com</a></p>
+    </div>
+         
+  </div>
+</div>
+
+</body>
+</html>
+
