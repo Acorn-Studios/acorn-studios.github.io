@@ -1,0 +1,12 @@
+{
+  "name": "analogue pong",
+  "short_name": "analogue pong",
+  "id": "com.example.pingpong",
+  "description": "This example is a re-creation of the classic pong game in GDevelop, with some adaptations.",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
