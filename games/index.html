@@ -200,6 +200,38 @@
  .grid__item--active .card__title, .grid__item:hover .card__title {
 	 transform: translateY(-20px);
 }
+ .grid__item--active .card__icon--location, .grid__item:hover .card__icon--location {
+	 opacity: 1;
+	 transform: scale(1);
+	 visibility: visible;
+}
+ .grid__item--active .card__sub-title, .grid__item:hover .card__sub-title {
+	 opacity: 0;
+	 transform: translateY(-20px);
+}
+ .grid__item.grid__item--active, .grid__item--active, .grid__item--active:hover {
+	 opacity: 1 !important;
+	 transform: scale(1.085) !important;
+	 z-index: 100 !important;
+}
+ .grid__item.grid__item--active .card__details, .grid__item--active .card__details, .grid__item--active:hover .card__details {
+	 border-radius: 10px;
+	 top: 10px;
+}
+ .grid__item.grid__item--active .card__info, .grid__item--active .card__info, .grid__item--active:hover .card__info {
+	 opacity: 0;
+	 transform: translateY(-20px);
+	 visibility: hidden;
+}
+ .grid__item.grid__item--active .card__map, .grid__item--active .card__map, .grid__item--active:hover .card__map {
+	 bottom: 0;
+	 top: 50px;
+}
+ .grid__item--active .card__icon--location {
+	 opacity: 0 !important;
+	 transform: scale(1);
+	 visibility: visible;
+}
  .grid__item--active .card__icon--close {
 	 opacity: 1;
 	 transform: scale(1);
@@ -214,18 +246,7 @@
  .grid__item:hover, .grid__item:hover *, .grid__item:hover .grid__item::before {
 	 transition: all 0.3s cubic-bezier(0.65, 0.64, 0.66, 1.2) !important;
 }
-	.card__icon--game {
-    bottom: -4px;
-    opacity: 0;
-    position: absolute;
-    right: 10px;
-    transform: scale(0.3);
-    visibility: hidden;
-}
-
-.card__icon--game svg * {
-    fill: #f8a51b;
-}
+ 
  
 </style>
 <script>
