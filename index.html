@@ -2,6 +2,14 @@
 <html>
 <head>
 <style>
+#loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #444444;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
 .grid-container {
   display: grid;
   grid-template-columns: auto;
@@ -40,7 +48,22 @@ Some of my other games
 </iframe>
 </div>
 </div>
-
+	#Display preloader until page loads
+<script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    "body").style.visibility = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+            }
+        };
+    </script>
 
 </body>
 </html>
