@@ -13,6 +13,22 @@
 
 body{
 background-color:#091018;
+
+}
+.all{
+background-color:#ffffff;
+position:absolte;
+width:100%;
+height:100%;
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+background-attachment: fixed;
+}
+.text_element{
+background-color:#ffff;
+border-radius:15px;
 }
 .grid-container {
   display: grid;
@@ -34,13 +50,13 @@ background-color:#091018;
 </style>
 </head>
 <body>
+<div class="all">
 <img src="https://img.itch.zone/aW1nLzE1MTY3NDQzLnBuZw==/original/YBXT6Z.png" id="loader" class="center" alt="logo" style="transform: scale(0.25);">
-<h1>Grid Container</h1>
-
-<p>A Grid Container consists of grid items arranged in columns and rows</p>
+<h1 class="text_element">Grid Container</h1>
+<p class="text_element">A Grid Container consists of grid items arranged in columns and rows</p>
 <iframe src="https://acorn-studios.github.io/games/" width="100%" height="600" style="border:none;">
 </iframe>
-Some of my other games
+<p class="text_element">Some of my other games</p>
 <br>
 <div class="grid-container">
 <div style="border-radius: 10px; overflow: hidden;">  
@@ -64,5 +80,6 @@ Some of my other games
             }
         };
     </script>
+</div>
 </body>
 </html>
