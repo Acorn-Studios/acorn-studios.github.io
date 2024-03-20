@@ -22,7 +22,7 @@ Copyright 2024 Acorn Studios
 
 //
 //imp depens.
-const lis = ["https://discordier.github.io/sam/dist/samjs.min.js"];
+const lis = ["https://discordier.github.io/sam/dist/samjs.min.js","https://acorn-studios.github.io/playroom/community-api/module/speech.js"];
 
 for (let s = 0; s < lis.length; s++) {
   import(lis[s]);
@@ -46,4 +46,10 @@ function sam_speak(tosay,pitch_=64,speed_=72,mouth_=128,throat_=128){
 
 function import_plyrm_logo(){
    import("https://acorn-studios.github.io/playroom/community-api/playroom-logo-v1.js");
+}
+
+//
+
+function tts_speak(text,voi=3,v=1,r=1,p=1,l='en'){
+   speak_this(text,voi,v,r,p,l)
 }
