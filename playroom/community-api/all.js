@@ -50,6 +50,14 @@ function import_plyrm_logo(){
 
 //
 
+console.log("Loading Voice API...")
+if ('speechSynthesis' in window) {
+  console.log("speechSynthesis loaded...");} else {
+  // Speech Synthesis Not Supported 😣
+  alert("Sorry, your browser doesn't support text to speech!");}
+
+function speak_this(text,voi=3,v=1,r=1,p=1,l='en'){var msg = new SpeechSynthesisUtterance();var voices = window.speechSynthesis.getVoices();msg.voice = voices[voi];msg.volume = v;msg.rate = r;msg.pitch = p;msg.text = text;msg.lang = l;speechSynthesis.speak(msg);}console.log("Loaded!");
+
 function tts_speak(text,voi=3,v=1,r=1,p=1,l='en'){
    speak_this(text,voi,v,r,p,l)
 }
