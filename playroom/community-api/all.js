@@ -19,4 +19,4 @@ Copyright 2024 Acorn Studios
    See the License for the specific language governing permissions and
    limitations under the License.
 /*/
-import "./module/sam.js";
+import "https://discordier.github.io/sam/dist/samjs.min.js";
