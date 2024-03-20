@@ -22,6 +22,6 @@ Copyright 2024 Acorn Studios
 const lis = ["https://discordier.github.io/sam/dist/samjs.min.js"];
 
 for (let s = 0; s < lis.length; s++) {
-  import lis[s];
+  import(lis[s]);
   console.log("Loading Community Playroom Toolkit: "+lis[s]+" Step: "+(s+1)+"/"+lis.length);
 } console.log("Loaded!")
