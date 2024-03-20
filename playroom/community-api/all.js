@@ -22,7 +22,7 @@ Copyright 2024 Acorn Studios
 
 //
 //imp depens.
-const lis = ["https://discordier.github.io/sam/dist/samjs.min.js","https://acorn-studios.github.io/playroom/community-api/module/speech.js"];
+const lis = ["https://discordier.github.io/sam/dist/samjs.min.js"];
 
 for (let s = 0; s < lis.length; s++) {
   import(lis[s]);
