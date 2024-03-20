@@ -19,9 +19,31 @@ Copyright 2024 Acorn Studios
    See the License for the specific language governing permissions and
    limitations under the License.
 /*/
+
+//
+//imp depens.
 const lis = ["https://discordier.github.io/sam/dist/samjs.min.js"];
 
 for (let s = 0; s < lis.length; s++) {
   import(lis[s]);
   console.log("Loading Community Playroom Toolkit: "+lis[s]+" Step: "+(s+1)+"/"+lis.length);
-} console.log("Loaded!")
+} console.log("Loaded!");
+
+//
+
+function sam_speak(tosay,pitch_=64,speed_=72,mouth_=128,throat_=128){
+  opts = {
+    pitch: pitch_,
+    speed: speed_,
+    mouth: mouth_,
+    throat: throat_
+   };
+   var s = new SamJs(opts);
+   s.speak(tosay.toString()); 
+}
+
+//
+
+function import_plyrm_logo(){
+   import("https://acorn-studios.github.io/playroom/community-api/playroom-logo-v1.js");
+}
