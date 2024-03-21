@@ -1,2 +1,301 @@
-console.log("Made with Playroom")
-var _0x5ecd67=_0x1d4a;function _0x1ae6(){var _0x29e298=['576718RZDVmY','div','insertBefore','4325015fdZjKN','innerHTML','1398114GzRfih','childNodes','5200013YExJxJ','<style>.plyrmlg:active{color:black;}</style><a\x20class=\x22plyrmlg\x22\x20href=\x22https://joinplayroom.com/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://joinplayroom.com/assets/icon-N3TrsQnc.svg\x22\x20style=\x22position:absolute;\x20bottom:16px;\x20right:16px;\x20width:32px;height:32px;\x20box-shadow:\x202px\x201px\x205px;\x20color:black;\x20border-radius:50%;\x22></a>','352TcLTDw','createElement','appendChild','4SVLnJM','body','143050fwNRUq','2AxIsXD','4089411GpezXo','16ryAkiP','2138748NSMHGp'];_0x1ae6=function(){return _0x29e298;};return _0x1ae6();}function _0x1d4a(_0x5dab67,_0x2e1e43){var _0x1ae60a=_0x1ae6();return _0x1d4a=function(_0x1d4a15,_0x46772a){_0x1d4a15=_0x1d4a15-0x1d8;var _0x51ebda=_0x1ae60a[_0x1d4a15];return _0x51ebda;},_0x1d4a(_0x5dab67,_0x2e1e43);}(function(_0x12e7a3,_0x3ea2ea){var _0x4fd0e8=_0x1d4a,_0x1e235e=_0x12e7a3();while(!![]){try{var _0x3fa620=parseInt(_0x4fd0e8(0x1e5))/0x1*(parseInt(_0x4fd0e8(0x1e9))/0x2)+parseInt(_0x4fd0e8(0x1e8))/0x3+parseInt(_0x4fd0e8(0x1e2))/0x4*(-parseInt(_0x4fd0e8(0x1d9))/0x5)+-parseInt(_0x4fd0e8(0x1db))/0x6+parseInt(_0x4fd0e8(0x1dd))/0x7+-parseInt(_0x4fd0e8(0x1e7))/0x8*(parseInt(_0x4fd0e8(0x1e6))/0x9)+-parseInt(_0x4fd0e8(0x1e4))/0xa*(-parseInt(_0x4fd0e8(0x1df))/0xb);if(_0x3fa620===_0x3ea2ea)break;else _0x1e235e['push'](_0x1e235e['shift']());}catch(_0xba51b){_0x1e235e['push'](_0x1e235e['shift']());}}}(_0x1ae6,0x76091));var div=document[_0x5ecd67(0x1e0)]('div'),img=new Image();function create(_0x10fa64){var _0xf0120b=_0x5ecd67,_0x22b461=document['createDocumentFragment'](),_0x49c3a5=document['createElement'](_0xf0120b(0x1ea));_0x49c3a5[_0xf0120b(0x1da)]=_0x10fa64;while(_0x49c3a5['firstChild']){_0x22b461[_0xf0120b(0x1e1)](_0x49c3a5['firstChild']);}return _0x22b461;}var fragment=create(_0x5ecd67(0x1de));document['body'][_0x5ecd67(0x1d8)](fragment,document[_0x5ecd67(0x1e3)][_0x5ecd67(0x1dc)][0x0]);
+console.log("Made with Playroom");
+var div = document.createElement('div');
+var img = new Image();
+function create(_0x10fa64) {
+  var _0x22b461 = document.createDocumentFragment();
+  var _0x49c3a5 = document.createElement("div");
+  _0x49c3a5.innerHTML = _0x10fa64;
+  while (_0x49c3a5.firstChild) {
+    _0x22b461.appendChild(_0x49c3a5.firstChild);
+  }
+  return _0x22b461;
+}
+var fragment = create('<style>.plyrmlg:active{color:black;}</style><a class=\"plyrmlg\" href=\"https://joinplayroom.com/\" target=\"_blank\"><img src=\"https://joinplayroom.com/assets/icon-N3TrsQnc.svg\" style=\"position:absolute; bottom:16px; right:16px; width:32px;height:32px; box-shadow: 2px 1px 5px; color:black; border-radius:50%;\"></a><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&family=Noto+Sans+Symbols:wght@100..900&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet"> <style>.js-snackbar__message{font-family: "Noto Sans Symbols", sans-serif; padding: 0px;}.js-snackbar-container{padding-right:55px}</style> <link rel="stylesheet" type="text/css" href="https://www.michaelmickelson.com/js-snackbar/dist/js-snackbar.min.css"/>');
+document.body.insertBefore(fragment, document.body.childNodes[0x0]);
+
+function SnackBar(userOptions) {
+    var _This = this;
+    var _Interval;
+    var _Element;
+    var _Container;
+    var _Message;
+    var _MessageWrapper;
+    function _create() {
+        _applyUserOptions();
+        _setContainer();
+        _applyPositionClasses();
+        _Element = _createMessage();
+        _Container.appendChild(_Element);
+        if (_Options.timeout !== false && _Options.timeout > 0) {
+            _Interval = setTimeout(_This.Close, _Options.timeout)
+        }
+    }
+    function _applyUserOptions() {
+        _Options = {
+            message: userOptions?.message ?? "Operation performed successfully.",
+            dismissible: userOptions?.dismissible ?? true,
+            timeout: userOptions?.timeout ?? 5000,
+            status: userOptions?.status ? userOptions.status.toLowerCase().trim() : "",
+            actions: userOptions?.actions ?? [],
+            fixed: userOptions?.fixed ?? false,
+            position: userOptions?.position ?? "br",
+            container: userOptions?.container ?? document.body,
+            width: userOptions?.width,
+            speed: userOptions?.speed,
+            icon: userOptions?.icon
+        }
+    }
+    function _setContainer() {
+        var target = getOrFindContainer();
+        if (target === undefined) {
+            console.warn("SnackBar: Could not find target container " + _Options.container);
+            target = document.body;
+            // default to the body as the container
+        }
+        _Container = getOrAddContainerIn(target);
+        function getOrAddContainerIn(target) {
+            var node;
+            var positionClass = _getPositionClass();
+            for (var i = 0; i < target.children.length; i++) {
+                node = target.children.item(i);
+                if (node.nodeType === 1 && node.classList.length > 0 && node.classList.contains("js-snackbar-container") && node.classList.contains(positionClass)) {
+                    return node
+                }
+            }
+            return createNewContainer(target)
+        }
+        function createNewContainer(target) {
+            var container = document.createElement("div");
+            container.classList.add("js-snackbar-container");
+            if (_Options.fixed) {
+                container.classList.add("js-snackbar-container--fixed")
+            }
+            target.appendChild(container);
+            return container
+        }
+        function getOrFindContainer() {
+            return typeof _Options.container === "string" ? document.querySelector(_Options.container) : _Options.container
+        }
+    }
+    function _applyPositionClasses() {
+        _Container.classList.add(_getPositionClass());
+        var fixedClassName = "js-snackbar-container--fixed";
+        if (_Options.fixed) {
+            _Container.classList.add(fixedClassName)
+        } else {
+            _Container.classList.remove(fixedClassName)
+        }
+    }
+    function _createMessage() {
+        var outerElement = createWrapper();
+        var innerSnack = createInnerSnackbar();
+        outerElement.appendChild(innerSnack);
+        return outerElement;
+        function createWrapper() {
+            var outerElement = document.createElement("div");
+            outerElement.classList.add("js-snackbar__wrapper");
+            outerElement.style.height = "0px";
+            outerElement.style.opacity = "0";
+            outerElement.style.marginTop = "0px";
+            outerElement.style.marginBottom = "0px";
+            setWidth(outerElement);
+            setSpeed(outerElement);
+            return outerElement
+        }
+        function createInnerSnackbar() {
+            var innerSnack = document.createElement("div");
+            innerSnack.classList.add("js-snackbar", "js-snackbar--show");
+            applyColorAndIconTo(innerSnack);
+            insertMessageTo(innerSnack);
+            addActionsTo(innerSnack);
+            addDismissButtonTo(innerSnack);
+            return innerSnack
+        }
+        function applyColorAndIconTo(element) {
+            if (!_Options.status)
+                return;
+            var status = document.createElement("span");
+            status.classList.add("js-snackbar__status");
+            applyColorTo(status);
+            applyIconTo(status);
+            element.appendChild(status);
+            function applyColorTo(element) {
+                switch (_Options.status) {
+                case "success":
+                case "green":
+                    element.classList.add("js-snackbar--success");
+                    break;
+                case "warning":
+                case "alert":
+                case "orange":
+                    element.classList.add("js-snackbar--warning");
+                    break;
+                case "danger":
+                case "error":
+                case "red":
+                    element.classList.add("js-snackbar--danger");
+                    break;
+                default:
+                    element.classList.add("js-snackbar--info");
+                    break;
+                }
+            }
+            function applyIconTo(element) {
+                if (!_Options.icon)
+                    return;
+                var icon = document.createElement("span");
+                icon.classList.add("js-snackbar__icon");
+                switch (_Options.icon) {
+                case "exclamation":
+                case "warn":
+                case "danger":
+                    icon.innerText = "!";
+                    break;
+                case "info":
+                case "question":
+                case "question-mark":
+                    icon.innerText = "?";
+                    break;
+                case "plus":
+                case "add":
+                    icon.innerText = "+";
+                    break;
+                default:
+                    if (_Options.icon.length > 1) {
+                        console.warn("Invalid icon character provided: ", _Options.icon)
+                    }
+                    icon.innerText = _Options.icon.substr(0, 1);
+                    break;
+                }
+                element.appendChild(icon)
+            }
+        }
+        function insertMessageTo(element) {
+            _MessageWrapper = document.createElement("div");
+            _MessageWrapper.classList.add("js-snackbar__message-wrapper");
+            _Message = document.createElement("span");
+            _Message.classList.add("js-snackbar__message");
+            _Message.innerHTML = _Options.message;
+            _MessageWrapper.appendChild(_Message);
+            element.appendChild(_MessageWrapper)
+        }
+        function addActionsTo(element) {
+            if (typeof _Options.actions !== "object") {
+                return
+            }
+            for (var i = 0; i < _Options.actions.length; i++) {
+                addAction(element, _Options.actions[i])
+            }
+            function addAction(element, action) {
+                var button = document.createElement("span");
+                button.classList.add("js-snackbar__action");
+                button.textContent = action.text;
+                if (typeof action.function === "function") {
+                    if (action.dismiss === true) {
+                        button.onclick = function() {
+                            action.function();
+                            _This.Close()
+                        }
+                    } else {
+                        button.onclick = action.function
+                    }
+                } else {
+                    button.onclick = _This.Close
+                }
+                element.appendChild(button)
+            }
+        }
+        function addDismissButtonTo(element) {
+            if (!_Options.dismissible) {
+                return
+            }
+            var closeButton = document.createElement("span");
+            closeButton.classList.add("js-snackbar__close");
+            closeButton.innerText = "\xD7";
+            closeButton.onclick = _This.Close;
+            element.appendChild(closeButton)
+        }
+        function setWidth(element) {
+            if (!_Options.width)
+                return;
+            element.style.width = _Options.width
+        }
+        function setSpeed(element) {
+            const {speed} = _Options;
+            switch (typeof speed) {
+            case "number":
+                element.style.transitionDuration = speed + "ms";
+                break;
+            case "string":
+                element.style.transitionDuration = speed;
+                break;
+            }
+        }
+    }
+    function _getPositionClass() {
+        switch (_Options.position) {
+        case "bl":
+            return "js-snackbar-container--bottom-left";
+        case "tl":
+            return "js-snackbar-container--top-left";
+        case "tr":
+            return "js-snackbar-container--top-right";
+        case "tc":
+        case "tm":
+            return "js-snackbar-container--top-center";
+        case "bc":
+        case "bm":
+            return "js-snackbar-container--bottom-center";
+        default:
+            return "js-snackbar-container--bottom-right";
+        }
+    }
+    this.Open = function() {
+        var contentHeight = getMessageHeight();
+        _Element.style.height = contentHeight + "px";
+        _Element.style.opacity = 1;
+        _Element.style.marginTop = "5px";
+        _Element.style.marginBottom = "5px";
+        _Element.addEventListener("transitioned", function() {
+            _Element.removeEventListener("transitioned", arguments.callee);
+            _Element.style.height = null
+        });
+        function getMessageHeight() {
+            const wrapperStyles = window.getComputedStyle(_MessageWrapper);
+            return _Message.scrollHeight + parseFloat(wrapperStyles.getPropertyValue("padding-top")) + parseFloat(wrapperStyles.getPropertyValue("padding-bottom"))
+        }
+    }
+    ;
+    this.Close = function() {
+        if (_Interval)
+            clearInterval(_Interval);
+        var snackbarHeight = _Element.scrollHeight;
+        // get the auto height as a px value
+        var snackbarTransitions = _Element.style.transition;
+        _Element.style.transition = "";
+        requestAnimationFrame(function() {
+            _Element.style.height = snackbarHeight + "px";
+            // set the auto height to the px height
+            _Element.style.opacity = 1;
+            _Element.style.marginTop = "0px";
+            _Element.style.marginBottom = "0px";
+            _Element.style.transition = snackbarTransitions;
+            requestAnimationFrame(function() {
+                _Element.style.height = "0px";
+                _Element.style.opacity = 0
+            })
+        });
+        setTimeout(function() {
+            _Container.removeChild(_Element)
+        }, 1000)
+    }
+    ;
+    _create();
+    _This.Open()
+}
+if (typeof module !== "undefined") {
+    module.exports = SnackBar
+}
+
+
+SnackBar({message: "🏁 Made with Playroom",dismissible: false,timeout: 5000,fixed: true,position: "br"})
