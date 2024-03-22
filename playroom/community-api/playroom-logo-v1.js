@@ -1,4 +1,13 @@
-console.log("Made with Playroom");
+/*/
+Credit:
+Snackbar JS Code and CSS Elements provided by https://github.com/mickelsonmichael/js-snackbar under the MIT license. 
+See the GitHub project page for license details, source code, and more. 
+Adapted by BigS [[hot]] under Acorn Studios
+
+This module is a part of the Community Playroom API Toolkit, which is under the Apache License.
+See https://acorn-studios.github.io/playroom/community-api/all.js for licensing terms.
+/*/
+console.log("Made with Playroom | https://joinplayroom.com/");
 var div = document.createElement('div');
 var img = new Image();
 function create(_0x10fa64) {
